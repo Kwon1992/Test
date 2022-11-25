@@ -1,0 +1,36 @@
+CASE #1
+-- 브랜치마다 신규 commit이 하나 이상 있는 경우
+-- 3-way Merge 라고 한다.
+
+CASE #2
+-- 기준 브랜치에서 나온 신규 브랜치에만 commit이 있는 경우 (기준이 되는 브랜치에 신규 commit이 없는 경우)
+-- 신규 브랜치가 main(기준)이 된다.
+-- fast-forward Merge 라고 한다.
+
+git merge --no-ff 브랜치명
+-- 자동으로 fast-forward Merge가 되는게 싫은 경우 --no-ff 옵션을 걸면 된다.
+
+-- 브랜치를 합치더라도 삭제가 되는것은 아니다.
+
+git branch -d 브랜치명
+-- merge한 해당 브랜치를 삭제한다.
+
+git branch -D 브랜치명
+-- merge하지 않은 브랜치를 강제로 삭제한다.
+
+git rebase 
+-- rebase는 브랜치의 시작점을 다른 commit으로 옮겨주는 행위이다.
+-- rebase를 쓰는 이유 : 3-way Merge는 git log가 너무 복잡해짐. 간단하고 짧은 브랜치는 rebase로 깔끔하게 fast-forward Merge...
+-- rebase 단점 : conflict가 많이 발생함.
+-- rebase 사용법
+-- 1. git switch 새로운브랜치
+-- 2. git rebase main
+-- 3. git switch main
+-- 4. git merge 새로운브랜치
+-- 5. git commit -m "메시지"
+
+git switch 기준브랜치
+git merge --squash 새로운브랜치명
+git commit -m "메시지"
+-- squash 브랜치를 할 경우에는 새로운브랜치에서 커밋한 로그가 기준브랜치에 쌓이지 않아 깔끔한 관리가 가능
+-- 사소한 브랜치는 squash로 로그정리, 중요한 브랜치는 3-way Merge로 로그까지 다 찍히게 merge하면 된다.g
