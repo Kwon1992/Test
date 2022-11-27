@@ -21,3 +21,6 @@ git revert HEAD : 최근 commit을 삭제(취소)한다.
 <특정 커밋 시절로 강제로 돌아가기>
 git reset --hard 커밋아이디 : 해당 커밋아이디 시점으로 완전히 돌아가버린다. (이후의 commit 이력 사라짐)
 * reset은 혼자 작업할때 씀.. 협업할 때 쓰면 큰일남!!!
+
+git reset --soft 커밋아이디 : 리셋은 할 건데, 바로 삭제하지는 말고 staging 해놓을 떄는 soft 옵션 사용
+git reset --mixed 커밋아이디 : 리셋은 할 건데, 바로 삭제하지는 말고 unstage 할 때 mixed 옵션 사용
