@@ -1,0 +1,6 @@
+git은 버전관리(Version Control)을 하기 위한 프로그램이다.
+
+이에 따라 revert, reset, restore와 같이 파일을 복구하거나 commit을 복구하거나 과거로 돌아가는 것이 가능핟.
+
+자주 쓰는 명령어는 아니다. 알고만 있자.
+
