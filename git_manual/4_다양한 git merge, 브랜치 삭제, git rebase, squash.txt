@@ -29,6 +29,7 @@ git rebase
 -- 4. git merge 새로운브랜치
 -- 5. git commit -m "메시지"
 
+squash
 git switch 기준브랜치
 git merge --squash 새로운브랜치명
 git commit -m "메시지"
