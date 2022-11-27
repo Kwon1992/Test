@@ -4,3 +4,20 @@ git은 버전관리(Version Control)을 하기 위한 프로그램이다.
 
 자주 쓰는 명령어는 아니다. 알고만 있자.
 
+<파일명 수정>
+git restore 파일명 : 최근 commit되었을 시점의 상태로 되돌린다
+git restore --source 커밋아이디 파일명 : 커밋아이디 시점으로 파일명을 되돌린다.
+git restore --staged 파일명 : 파일명의 staging 상태를 취소할 수 있다.
+
+<커밋 수정> 
+* git에서는 commit 자체를 삭제하는 명령어는 존재하지 않는다.
+* 단, 특정 commit에서 작업한 내용을 없애는 commit을 생성한다.
+git revert 커밋아이디 : 해당 커밋아이디에 commit한 내용을 삭제(취소)한다.
+git revert 커밋아이디1 커밋아이디2 ... : 여러개의 commit을 동시에 삭제(취소)가능하다
+git revert HEAD : 최근 commit을 삭제(취소)한다.
+
+* merge commit 취소도 가능하다.(자세한 내용은 검색)
+
+<특정 커밋 시절로 강제로 돌아가기>
+git reset --hard 커밋아이디 : 해당 커밋아이디 시점으로 완전히 돌아가버린다. (이후의 commit 이력 사라짐)
+* reset은 혼자 작업할때 씀.. 협업할 때 쓰면 큰일남!!!
