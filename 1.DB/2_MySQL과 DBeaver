@@ -1,0 +1,30 @@
+Database를 다루기 위해... 
+DBMS를 설치한다
+
+DBMS?
+1. DB 조작을 쉽게 도와준다.
+2. 데이터 입출력이 쉬워짐
+3. DB접속을 위한 계정발급이 가능하다.
+4. 백업이 쉬워짐
+
+유명한 DBMS : MySQL, PostgreSQl, Oracle, Microsoft SQL(MS SQL), 엑셀(...)
+
+DBMS마다
+- 저장하는 데이터타입이 다름
+- SQL 문법이 살짝 다름
+
+
+<< 무료 DBMS중 점유율 높은 MySQL 사용하자 >>
+1. 설치버전 : MySQL 8.0.31. (Server, Workbench, Shell 설치함)
+  - Workbench : GUI로 DB 관리 // - Shell : CUI(콘솔)로 DB 관리
+2. MySQL 포트 : 3306, X Protocol Port : 33060
+3. MySQL 서비스명 : MySQL80
+
+<< MySQL 조작법 >>
+1. Workbench 사용
+2. 터미널 사용
+3. DBeaver 사용
+
+
+======
+MySQL 접근하려면... Workbench에서 서버 킨 뒤 DBeaver 이용하자!!
