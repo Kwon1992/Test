@@ -1,0 +1,42 @@
+<<<<<<git push>>>>>
+
+repository : git이 파일을 기록해두는 장소 (git int 하면 repository 생성함.)
+
+온라인 상에 repository를 만들자!! => github 이용!
+
+git push -u 원격저장소주소 로컬브랜치명 :: 해당 원격저장소주소에 로컬 브랜치를 올린다.
+
+-- 원격저장소 주소는 github에서 repository 생성 후 확인 가능.
+(원격저장소 주소 예) https://github.com/Kwon1992/Test.git
+-- -u 옵션? 내가 보내는 주소를 기억해두라는 의미. (이후 주소를 입력하지 않아도 편하게 push, commit 등 가능)
+
+원격저장소 주소를 일일이 치는것이 힘듦.. -> git에서 변수문법을 사용 가능!!
+git remote add 변수명 원격저장소주소 : 원격저장소주소를 변수명에 할당한다.
+
+(1) git add
+(2) git commit
+(3) git push (최종)
+순서로 보통 업무 수행함.
+
+<<<<<<git clone, pull>>>>>
+새로운 작업환경(폴더 등)에서 git clone 사용!!
+git clone 원격저장소주소 : 해당 원격저장소의 파일들을 복제해줌.
+
+-- github를 통해 협업하려면... Collaborators 에서 팀원의 github 아이디를 등록해야함.
+
+
+다른 사람이 먼저 git push를 한 뒤 내가 하려고하면 충돌이 일어나므로 바로 push가 되지 않는다.
+-> 이 때에는 git pull을 통해 최신화된 내용을 받은 뒤 push하면 된다.
+git pull 원격저장소주소 브랜치명 // 처음 push할 때 -u 옵션을 걸었으면 원격저장소 주소와 브랜치명을 적지 않아도 됨
+
+
+git pull은 git fetch와 git merge를 동시에 하는 명령어임.
+git fetch :: 원격저장소의 신규 commit을 가져온다
+git merge :: 내 브랜치에 merge한다.
+=> 따라서, git pull하다가 conflict 발생할 수 있음...(다른 팀원이 나와 같은 파일의 같은 줄을 수정했을 경우)
+
+
+<<<<<<브랜치로 협업하기>>>>>>
+각 팀원이 브랜치를 생성하여 작업하다 main에 merge할때... 임의로 하면 문제 발생!!
+팀원 간 회의가 필요한 경우가 존재함.
+=> github 사이트에서 merge하기 전 토의 가능... (github에서는 Pull requset가 merge하는 기능임)

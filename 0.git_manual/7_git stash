@@ -1,0 +1,20 @@
+git stash : 작성한 코드를 임시적으로 다른 곳에 보관할 수 있다.
+- 최근 commit과의 차이점 전부를 보관한다.
+- 단, staging 안해놓은 새로운 파일은 stash 되지 않는다.
+  (단, 강제적으로 stash하기위한 명령어 있음.)
+
+git stash list : 보관된 코드의 목록을 볼 수 있다.
+
+git stash save '메모내용' : git stash list하면 메모작성한 내용이 같이 표출된다.
+git stash -p : 전체 말고 일부코드만 stash하고 싶을 때 사용. stash할지 물어볼 때 y/n으로 답하면 됨
+
+
+git stash pop : 가장 최근에 stash한 코드부터 불러온다.
+* 불러올 때 현재 코드와 겹치는 부분 있으면 conflict 발생함.
+
+git stash drop 삭제할stash의id : id에 해당하는 stash를 삭제함.
+git stash clear : 모든 stash를 삭제함.
+
+* 뭐하러 stash 함? 주석처리하면 편한데..? 
+=> 나중에 commit할 때 주석처리한 내용도 반영되므로 더럽히기 싫을 때 사용하면 유용함.
+
