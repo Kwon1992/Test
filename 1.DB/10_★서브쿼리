@@ -1,1 +1,18 @@
 서브쿼리 : SELECT 쿼리 안에 또다른 SELECT 쿼리를 추가하는 것임
+=> 조건식 등에 사용하는 경우 있음.
+
+서브쿼리 사용규칙
+ 1. 데이터(문자열, 숫자)가 들어갈 자리에는 전부 서브쿼리를 넣을 수 있음.
+ 2. 1개의 데이터만 뱉는 쿼리문만 서브쿼리 역할로 사용 가능함.(2개 이상의 행을 출력하는 쿼리는 서브쿼리X)
+ 3. 소괄호를 꼭 넣어야함.
+
+(예)
+SELECT * FROM card 
+WHERE 사용금액 > (SELECT AVG(사용금액) FROM card) ;
+
+IN 문법 안에서도 서브쿼리 사용이 가능하다.
+SELECT * FROM CARD where 고객명 IN ('Pristine', 'Amy', 'George');
+=> SELECT * FROM CARD where 고객명 IN (SELECT 이름 FROM blacklist);
+=> 사실 나중에 배우는 JOIN 문법 사용해도 됨.
+
+

@@ -1,0 +1,22 @@
+
+SELECT 컬럼명 FROM 테이블명 GROUP BY 컬럼명
+=> 컬럼에서 같은 값끼리 모아서 보여준다.
+=> 카테고리 값(등급, 국적 등)을 다루는 컬럼에서 주로 사용한다.
+
+(예) SELECT 고객등급, AVG(사용금액) FROM card GROUP BY 고객등급; // 꼭 컬럼명이 같아야하는건 아님..\
+
+GROUP BY 결과를 필터링할 수 있다.
+=> GROUP BY 결과를 필터링할 때는 WHERE 대신 HAVING을 쓴다.
+
+(예)  SELECT 고객등급, AVG(사용금액) FROM card GROUP BY 고객등급 HAVING 고객등급 = 'vip'; 
+
+
+WHERE과 HAVING의 차이? 
+=> WHERE은 SELECT FROM 결과 필터링
+=> HAVING은 GROUP BY 결과 필터링
+
+(예)SELECT 고객등급, AVG(사용금액) FROM card WHERE 연체횟수 = 0 GROUP BY 고객등급 HAVING 고객등급 = 'vip'; 
+=> 연체횟수가 0인 사람들에 대해서만 고객등급으로 GROUPING하고, 그중에서도 등급이 vip인 사람에 대해서만 결과 추출
+
+
+* SELECT FROM / WHERE / GROUP BY / HAVING / ORDER BY 순서로 사용
