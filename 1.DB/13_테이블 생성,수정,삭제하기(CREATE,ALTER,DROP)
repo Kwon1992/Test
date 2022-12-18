@@ -1,0 +1,59 @@
+1. DB  혹은 TABLE 생성 시 사용하는 문법 : CREATE
+
+CREATE DATABASE DB명
+DROP DATABASE DB명 // 취소가 안되므로 주의!!
+
+2. 테이블 생성 시에는 테이블을 생성하려는 DB에서 SQL 편집기 열자
+
+CREATE TABLE DB명.테이블명 (
+    컬럼명1 데이터타입1 (옵션1),
+    컬럼명2 데이터타입2 (옵션2),
+    컬럼명3 데이터타입3 (옵션3),
+    ...
+)
+=> 하나의 컬럼에 여러개의 옵션 설정 가능 (스페이스바로 구분)
+
+*** 컬럼 생성 시 옵션(필요할 때마다 구글검색) *** [DBMS마다 옵션을 설정하기 위한 명령어가 다르므로 주의]
+1. DEFAULT '값' // 데이터를 넣지 않았을 때 기본으로 입력할 값을 지정함.
+2. NOT NULL // NULL 값이 들어올 수 없음
+3. UNIQUE // 해당 컬럼에 동일한 값이 들어올 수 없음. (중복값 제한)
+  * UNIQUE 사용법
+  (예1)
+  CREATE TABLE DB명.테이블명 (          | CREATE TABLE DB명.테이블명 (   
+    컬럼명1 데이터타입1 UNIQUE,         | 컬럼명1 데이터타입1,
+    컬럼명2 데이터타입2,                | 컬럼명2 데이터타입2,
+    컬럼명3 데이터타입3                 | 컬럼명3 데이터타입3
+                                      | UNIQUE(컬럼명1, 컬럼명2) // 2개의 컬럼이 동시에 같은 값이면 안됨.
+)                                      |)
+=> UNIQUE 옵션의 두 사용방법의 동작방식이 다르니 참고!!
+
+4. CHECK // 들어올 데이터의 값을 검사한다. AND OR NOT IN 등 전부 가능.
+  => 컬럼명 데이터타입 CHECK(조건식) 의 형태.
+  (예) 나이 INT CHECK(나이 > 0)
+
+5. PRIMARY KEY // 해당 컬럼을 PK(PRIMARY KEY)로 설정함
+PRIMARY KEY? 해당 테이블에서 각각의 행을 구분하기 위한 컬럼이다.
+UNIQUE랑 차이가 뭐야? 
+
+6. AUTO_INCREMENT // 데이터를 넣지 않아도 자동으로 1씩 증가하는 정수를 넣는다.
+
+7. 제약조건마다 작명 가능 : CONSTRAINT 문법
+(예)
+CONSTRAINT 제약조건작명 PRIMARY KEY (id),
+CONSTRAINT 제약조건작명2 CHECK(나이 > 10)
+
+이렇게 해두면 나중에 에러가 날 때 "제약조건작명2 때문에 에러가 납니다" 이런 식으로 표기가 되므로 
+SQL 코드가 동작하지 않을 때 버그찾는 과정이 좀 더 편리할 수 있습니다. 
+
+(예)
+CREATE TABLE 테스트.NEW_TABLE (
+    id int,
+    이름 varchar(100),
+    나이 int
+)
+
+ALTER TABLE 테이블명 ADD 컬럼명 데이터타입 옵션 //특정 컬럼 추가
+ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 데이터타입 옵션 //특정 컬럼의 속성/제약조건 등 변경 (기존 입력된 값의 타입에 영향받음)
+ALTER TABLE 테이블명 DROP COLUMN 컬럼명 //특정 컬럼 삭제(취소 불가능)
+
+DROP TABLE 테이블명
